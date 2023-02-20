@@ -1,38 +1,34 @@
 <template>
   <v-card width="100%" dark>
     <v-row>
-        <v-col cols="12">
+      <v-col cols="12">
         <v-autocomplete
-        class="mt-5 "
- prepend-icon="mdi-movie-search-outline"
+          class="mt-5"
+          prepend-icon="mdi-movie-search-outline"
           v-model:search="searchQuery"
           :items="searchResults"
           :loading="isLoading"
           @input="onSearch"
+          bg-color="#454541"
           label="Search"
           item-title="title.english"
           outlined
-            variant="solo"
+          variant="solo"
           clearable
-
           autofocus
           hide-no-data
         >
           <template v-slot:item="{ props, item }">
-
-
             <v-list-item v-bind="props" :to="`/anime/${item.raw.id}`">
-
-                <!-- <v-img :src="item.raw.coverImage.medium"></v-img> -->
-                <template v-slot:prepend>
-                    <v-avatar :image="item.raw.coverImage.medium"></v-avatar>
-
-        </template>
+              <!-- <v-img :src="item.raw.coverImage.medium"></v-img> -->
+              <template v-slot:prepend>
+                <v-avatar :image="item.raw.coverImage.medium"></v-avatar>
+              </template>
             </v-list-item>
           </template>
         </v-autocomplete>
       </v-col>
-      </v-row>
+    </v-row>
   </v-card>
 </template>
 
